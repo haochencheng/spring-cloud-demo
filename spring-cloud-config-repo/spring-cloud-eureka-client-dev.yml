@@ -1,0 +1,35 @@
+spring:
+  application:
+    name : spring-cloud-config-server
+  #spring cloud config server 配置中心
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://${user.home}/config-repo
+
+server:
+  port : 7000
+  servlet:
+    path : /
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
+
+#spring cloud eureka 注册到注册中心
+eureka:
+    instance:
+      hostname: localhost
+      statusPageUrlPath: ${server.servlet.path}/actuator/info
+      healthCheckUrlPath: ${server.servlet.path}/actuator/health
+      homePageUrlPath: ${server.servlet.path}/
+    client:
+      serviceUrl:
+        defaultZone: http://${eureka.instance.hostname}:8000/eureka
+      healthcheck:
+        enabled: true
+
+
