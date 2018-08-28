@@ -1,25 +1,13 @@
+#spring cloud config client 配置中心客户端
 spring:
-  application:
-    name : spring-cloud-config-server
-  #spring cloud config server 配置中心
   cloud:
     config:
-      server:
-        git:
-          uri: file://${user.home}/config-repo
+      name: spring-cloud-eureka-client
+      profile: dev
+      uri: http://localhost:7000/
+#      label: master
 
-server:
-  port : 7000
-  servlet:
-    path : /
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: *
-
-#spring cloud eureka 注册到注册中心
+#spring cloud eureka client 注册中心客户端
 eureka:
   instance:
     hostname: localhost
