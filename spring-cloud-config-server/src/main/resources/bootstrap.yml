@@ -2,14 +2,15 @@ spring:
   application:
     name: spring-cloud-config-server
   profiles:
-    active: dev,prod
+    active: dev
   #spring cloud config server 配置中心
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/haochencheng/spring-cloud-demo/tree/master/spring-cloud-config-server/src/main/resources/config-repo/
+          uri: https://github.com/haochencheng/spring-cloud-demo/
           skipSslValidation: true
+          search-paths: spring-cloud-config-repo
 #spring cloud eureka 注册到注册中心
 eureka:
   instance:
