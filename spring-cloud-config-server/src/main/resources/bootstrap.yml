@@ -1,8 +1,4 @@
 spring:
-  application:
-    name: spring-cloud-config-server
-  profiles:
-    active: dev
   #spring cloud config server 配置中心
   cloud:
     config:
@@ -11,11 +7,11 @@ spring:
           uri: https://github.com/haochencheng/spring-cloud-demo/
           skipSslValidation: true
           search-paths: spring-cloud-config-repo
-#          force-pull: true
+          force-pull: true
 #spring cloud eureka 注册到注册中心
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8000/eureka
+      defaultZone: http://localhost:8000/eureka,http://localhost:8001/eureka
     healthcheck:
       enabled: true
